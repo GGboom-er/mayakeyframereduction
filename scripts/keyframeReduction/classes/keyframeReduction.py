@@ -74,6 +74,7 @@ class KeyframeReduction(object):
         :rtype: list
         """
         # get angles from points
+        print (angles)
         splits = []
 
         # get average variables
@@ -81,7 +82,7 @@ class KeyframeReduction(object):
         maxAngle = max(angles)
         average = (minAngle + maxAngle) * 0.5
         mean = sum(angles) / len(angles) * 0.5
-
+        print (minAngle,maxAngle,average,mean)
         # get value at which to split
         threshold = (math.log(average) - math.log(mean)) / (math.log(maxAngle) - math.log(minAngle)) * average
 
@@ -332,10 +333,10 @@ class KeyframeReduction(object):
 
         # only set values if the curve can be optimized.
         if len(keyframes) >= len(original):
-            print "< KeyframeReduction.reduce() " \
-                "| path: {0} " \
-                "| process-time: {1:,.2f} seconds " \
-                "| unable-to-reduce >".format(self.path, time.time() - t)
+            print("< KeyframeReduction.reduce() "
+                  "| path: {0} "
+                  "| process-time: {1:,.2f} seconds "
+                  "| unable-to-reduce >".format(self.path, time.time() - t))
             return 0
 
         # remove all keys but the first one and add keyframes
@@ -344,13 +345,13 @@ class KeyframeReduction(object):
 
         # print reduction rate
         rate = 100 - ((len(keyframes) / float(len(original))) * 100)
-        print "< KeyframeReduction.reduce() " \
+        print ("< KeyframeReduction.reduce() " \
             "| path: {0} " \
             "| process-time: {1:,.2f} seconds " \
             "| reduction-rate: {2:,.2f}%  >".format(
                 self.path,
                 time.time() - t,
-                rate
+                rate)
             )
 
         return rate
