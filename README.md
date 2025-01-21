@@ -1,3 +1,4 @@
+# Added support for Maya 2023
 # maya-keyframe-reduction
 Keyframe Reduction for Maya using least-squares method.
 
