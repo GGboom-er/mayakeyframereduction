@@ -9,10 +9,10 @@ from .classes.keyframeReduction import KeyframeReduction
 
 
 
-from PySide2.QtGui import *
-from PySide2.QtCore import *
-from PySide2.QtWidgets import *
-import shiboken2 as shiboken
+from PySide6.QtGui import *
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+import shiboken6 as shiboken
 
 
 # ----------------------------------------------------------------------------
@@ -23,7 +23,7 @@ FONT.setFamily("Consolas")
 
 BOLT_FONT = QFont()
 BOLT_FONT.setFamily("Consolas")
-BOLT_FONT.setWeight(100)
+BOLT_FONT.setWeight(QFont.Weight.Black)
 
 
 # ----------------------------------------------------------------------------
@@ -55,6 +55,7 @@ def getIconPath(name):
     """
     for path in os.environ.get("XBMLANGPATH").split(os.pathsep):
         iconPath = os.path.join(path, name)
+        print (iconPath)
         if os.path.exists(iconPath):
             return iconPath.replace("\\", "/")
 
